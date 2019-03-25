@@ -10,19 +10,29 @@ void shell_sort(int array[], int start, int end)
         int step = step_array[i];
         for (int j = start + step; j < end; j += 1)
         {
-            int curValue = array[j];
-            int index = j - step;
-
-            for (; index >= start; index -= step)
+            int index = j;
+            for (int k = j - step; k >= start; k -= step)
             {
-                if (curValue < array[index])
+                if (array[k] > array[j])
                 {
-                    array[index + step] = array[index];
+                    index -= step;
+                }
+                else
+                {
+                    break;
                 }
             }
 
-            array[index + step] = curValue;
+            int curValue = array[j];
+            for (int k = j; k > index; k -= step)
+                array[k] = array[k - step];
+
+            array[index] = curValue;
         }
     }
 }
 
+void sort(int array[], int start, int end)
+{
+    shell_sort(array, start, end);
+}
