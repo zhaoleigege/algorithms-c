@@ -2,4 +2,5 @@
 *.out
 test
 test1
-
+*.DS_Store
+*.dSYM
