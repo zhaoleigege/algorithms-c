@@ -1,19 +1,19 @@
 #include <stdio.h>
-#include "../list/list.h"
+#include "list.h"
 
-void show(element ele) {
+void show(Element ele) {
   printf("%d\n", ele);
 }
 
 int main() {
-  list array_list;
+  List array_list;
   init(&array_list);
   for (int i = 0; i < 15; i++)
     add(array_list, i);
 
   insert(array_list, size(array_list), 34);
 
-  element ele;
+  Element ele;
   get(array_list, 9, &ele);
   printf("get-> %d\n", ele);
 
@@ -23,7 +23,7 @@ int main() {
 
   int a_size = size(array_list);
   for (int i = 0; i < a_size; i++) {
-    element ele = i * 2;
+    Element ele = i * 2;
     update(array_list, i, ele);
   }
 
